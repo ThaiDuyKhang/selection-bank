@@ -3,6 +3,7 @@
   --link-icon: #f7fd92;
   --bg-time: #f1f5a0;
 }
+p{margin-bottom: 0;}
 body {
   min-height: 100vh;
   margin: auto;
@@ -48,6 +49,7 @@ footer {
 .title-method {
   color: #fff;
   margin-bottom: 0;
+  font-size: clamp(0.9rem, 0.8273rem + 0.3636vw, 1.1rem);
 }
 .dynamic-filter-list-container ul.info-card-holder {
   padding: 0;
@@ -55,7 +57,7 @@ footer {
 .dynamic-filter-list-container ul.info-card-holder li {
   padding: 1rem 0;
 }
-  .dynamic-filter-list-container ul.info-card-holder li .info-title {
+.dynamic-filter-list-container ul.info-card-holder li .info-title {
     width: clamp(10.625rem, 9.4178rem + 4.1096vw, 12.5rem);
   }
 
@@ -249,7 +251,10 @@ footer {
   color: var(--black);
 }
 .contentWapper_card {
-  min-height: 425px;
+  min-height: 460px;
+}
+.contentWapper_card .notice{
+  font-size: clamp(0.9rem, 0.8636rem + 0.1818vw, 1rem);
 }
 .contentWapper_card.momo {
   background-image: url(./images/patterns-top.svg),

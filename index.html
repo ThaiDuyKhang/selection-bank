@@ -24,7 +24,7 @@
       <p>Chọn ngân hàng hoặc ví điện tử để thực hiện thanh toán</p>
     </div>
     <!-------------------------------------------------- FILTER -------------------------------------------------->
-    <div class="dynamic-filter-container mb-4 d-flex align-items-center">
+    <div class="dynamic-filter-container my-4 d-flex align-items-center">
       <img class="search-img" src="images/search.svg" width="20">
       <input type="text" id="dynamic-filter-input" class="form-control col" onkeyup="FilterListSection()"
         placeholder="Nhập tên ngân hàng cần tìm..." />
@@ -35,10 +35,11 @@
     <div class="dynamic-filter-list-container">
       <!-------------------------------------------------- MOMO -------------------------------------------------->
       <div class="filter-content-box overflow-hidden" id="card-01-content" style="display: none">
-        <div class="header position-relative d-flex align-items-center justify-content-between p-4 px-md-5 rounded-top-3">
+        <div
+          class="header position-relative d-flex align-items-center justify-content-between py-3 px-4 px-md-5 rounded-top-3">
           <div class="d-flex align-items-center gap-2">
             <img src="images/momo.ico" width=30 />
-            <h5 class="title-method momo fs-6 pe-4">Cổng thanh toán qua ví điện tử Momo</h5>
+            <h5 class="title-method momo pe-4">Cổng thanh toán qua ví điện tử Momo</h5>
           </div>
           <div>
             <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
@@ -50,33 +51,42 @@
         </div>
         <div class="contentWapper_card momo pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
           <div class="mainCard cardLeft flex-grow-1">
-            <p class="fs-6">Quý khách thanh toán hoá đơn theo thông tin sau,<br />vui lòng nhập đúng nội dung
-              chuyển
-              tiền để hoàn tất quá trình
-              thanh toán. </p>
-            <ul class="info-card-holder mt-2 mt-lg-5">
-              <li class="d-flex align-items-end gap-2"><span class="info-title">Họ và tên: </span><span class="fs-5 fw-bold">THÁI DUY KHANG</span>
+            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
+            <ul class="info-card-holder mt-3 mt-lg-5">
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Họ và tên: </p>
+                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-2"><span class="info-title">Số điện thoại: </span><span id="phoneCopy"
-                  class="fs-5 fw-bold">0909654684</span>
-                <button id="PhoneCopyBtn" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số điện thoại: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="phoneCopy" class="fs-5 fw-bold">0909654684</p>
+                  <button id="PhoneCopyBtn" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-2"><span class="info-title">Nội dung chuyển tiền: </span><span id="textCopy"
-                  class="fs-5 fw-bold">EVPS610</span>
-                <button id="textCopyBtn" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Nội dung chuyển tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="textCopy" class="fs-5 fw-bold">EVPS610</p>
+                  <button id="textCopyBtn" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-2"><span class="info-title">Số tiền: </span><span id="priceCopy"
-                  class="fs-5 fw-bold">3,150,000</span>
-                <button id="priceCopyBtn" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="priceCopy" class="fs-5 fw-bold">3,150,000</p>
+                  <button id="priceCopyBtn" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
 
             </ul>
@@ -94,10 +104,11 @@
       </div>
       <!-------------------------------------------------- VIETCOMBANK -------------------------------------------------->
       <div class="filter-content-box overflow-hidden" id="card-02-content" style="display: none">
-        <div class="header position-relative d-flex align-items-center justify-content-between p-4 px-md-5 rounded-top-3">
+        <div
+          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
           <div class="d-flex align-items-center gap-2">
             <img src="images/vietcombank.ico" width=30 />
-            <h5 class="title-method vietcombank fs-6 pe-4">Cổng thanh toán qua ngân hàng Vietcombank</h5>
+            <h5 class="title-method vietcombank pe-4">Cổng thanh toán qua ngân hàng Vietcombank</h5>
           </div>
           <div>
             <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
@@ -109,33 +120,41 @@
         </div>
         <div class="contentWapper_card vcb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
           <div class="mainCard cardLeft flex-grow-1">
-            <p class="fs-6">Quý khách thanh toán hoá đơn theo thông tin sau,<br />vui lòng nhập đúng nội dung
-              chuyển
-              tiền để hoàn tất quá trình
-              thanh toán.</p>
-            <ul class="info-card-holder mt-1 mt-md-5">
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Họ và tên: </span><span class="fs-5 fw-bold">THÁI DUY KHANG</span>
+            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
+            <ul class="info-card-holder mt-3 mt-md-5">
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Họ và tên: </p>
+                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tài khoản: </span><span id="phoneCopy2"
-                  class="fs-5 fw-bold">006101991</span>
-                <button id="PhoneCopyBtn2" data-clipboard-target="#phoneCopy2" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tài khoản: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="phoneCopy2" class="fs-5 fw-bold">006101991</p>
+                  <button id="PhoneCopyBtn2" data-clipboard-target="#phoneCopy2" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Nội dung chuyển khoản: </span><span id="textCopy2"
-                  class="fs-5 fw-bold">EVPS610</span>
-                <button id="textCopyBtn2" data-clipboard-target="#textCopy2" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Nội dung chuyển tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="textCopy2" class="fs-5 fw-bold">EVPS610</p>
+                  <button id="textCopyBtn2" data-clipboard-target="#textCopy2" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tiền: </span><span id="priceCopy2"
-                  class="fs-5 fw-bold">3,150,000</span>
-                <button id="priceCopyBtn2" data-clipboard-target="#priceCopy2" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="priceCopy2" class="fs-5 fw-bold">3,150,000</p>
+                  <button id="priceCopyBtn2" data-clipboard-target="#priceCopy2" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
 
             </ul>
@@ -153,11 +172,11 @@
       </div>
       <!-------------------------------------------------- ACB BANK -------------------------------------------------->
       <div class="filter-content-box overflow-hidden" id="card-03-content" style="display: none">
-
-        <div class="header position-relative d-flex align-items-center justify-content-between p-4 px-md-5 rounded-top-3">
-          <div class="d-flex align-items-center gap-3">
+        <div
+          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
+          <div class="d-flex align-items-center gap-2">
             <img src="images/logo acb.svg" width=50 />
-            <h5 class="title-method acbbank fs-6 pe-4">Cổng thanh toán qua ngân hàng ACB</h5>
+            <h5 class="title-method acbbank pe-4">Cổng thanh toán qua ngân hàng ACB</h5>
           </div>
           <div>
             <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
@@ -169,33 +188,41 @@
         </div>
         <div class="contentWapper_card acb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
           <div class="mainCard cardLeft flex-grow-1">
-            <p class="fs-6">Quý khách thanh toán hoá đơn theo thông tin sau,<br />vui lòng nhập đúng nội dung
-              chuyển
-              tiền để hoàn tất quá trình
-              thanh toán. </p>
-            <ul class="info-card-holder mt-1 mt-md-5">
-
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Họ và tên: </span><span class="fs-5 fw-bold">THÁI DUY KHANG</span></li>
-              <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tài khoản: </span><span id="phoneCopy3"
-                  class="fs-5 fw-bold">006101991</span>
-                <button id="PhoneCopyBtn3" data-clipboard-target="#phoneCopy3" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
+            <ul class="info-card-holder mt-3 mt-lg-5">
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Họ và tên: </p>
+                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Nội dung chuyển khoản: </span><span id="textCopy3"
-                  class="fs-5 fw-bold">EVPS610</span>
-                <button id="textCopyBtn3" data-clipboard-target="#textCopy3" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tài khoản: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="phoneCopy3" class="fs-5 fw-bold">006101991</p>
+                  <button id="PhoneCopyBtn3" data-clipboard-target="#phoneCopy3" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tiền: </span><span id="priceCopy3"
-                  class="fs-5 fw-bold">3,150,000</span>
-                <button id="priceCopyBtn3" data-clipboard-target="#priceCopy3" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Nội dung chuyển khoản: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="textCopy3" class="fs-5 fw-bold">EVPS610</p>
+                  <button id="textCopyBtn3" data-clipboard-target="#textCopy3" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
+              </li>
+              <div class="line-detail"></div>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="priceCopy3" class="fs-5 fw-bold">3,150,000</p>
+                  <button id="priceCopyBtn3" data-clipboard-target="#priceCopy3" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
 
             </ul>
@@ -213,11 +240,11 @@
       </div>
       <!-------------------------------------------------- MB BANK -------------------------------------------------->
       <div class="filter-content-box overflow-hidden" id="card-04-content" style="display: none">
-
-        <div class="header position-relative d-flex align-items-center justify-content-between p-4 px-md-5 rounded-top-3">
+        <div
+          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
           <div class="d-flex align-items-center gap-2">
             <img src="images/mbbank.ico" width=30 />
-            <h5 class="title-method mbbank fs-6 pe-4">Cổng thanh toán qua ngân hàng MB</h5>
+            <h5 class="title-method mbbank pe-4">Cổng thanh toán qua ngân hàng MB</h5>
           </div>
           <div>
             <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
@@ -229,33 +256,41 @@
         </div>
         <div class="contentWapper_card mbb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
           <div class="mainCard cardLeft flex-grow-1">
-            <p class="fs-6">Quý khách thanh toán hoá đơn theo thông tin sau,<br />vui lòng nhập đúng nội dung
-              chuyển
-              tiền để hoàn tất quá trình
-              thanh toán. </p>
-            <ul class="info-card-holder mt-1 mt-md-5">
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Họ và tên: </span><span
-                  class="fs-5 fw-bold">THÁI DUY KHANG</span></li>
-              <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tài khoản: </span><span
-                  id="phoneCopy4" class="fs-5 fw-bold">006101991</span>
-                <button id="PhoneCopyBtn4" data-clipboard-target="#phoneCopy4" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
+            <ul class="info-card-holder mt-3 mt-lg-5">
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Họ và tên: </p>
+                <span class="fs-5 fw-bold">THÁI DUY KHANG</span>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Nội dung chuyển khoản: </span><span
-                  id="textCopy4" class="fs-5 fw-bold">EVPS610</span>
-                <button id="textCopyBtn4" data-clipboard-target="#textCopy4" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tài khoản: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="phoneCopy4" class="fs-5 fw-bold">006101991</p>
+                  <button id="PhoneCopyBtn4" data-clipboard-target="#phoneCopy4" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
               <div class="line-detail"></div>
-              <li class="d-flex align-items-end gap-1"><span class="info-title">Số tiền: </span><span id="priceCopy4"
-                  class="fs-5 fw-bold">3,150,000</span>
-                <button id="priceCopyBtn4" data-clipboard-target="#priceCopy4" type="button" class="btn copyBtn"
-                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                  chép</button>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Nội dung chuyển khoản: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="textCopy4" class="fs-5 fw-bold">EVPS610</p>
+                  <button id="textCopyBtn4" data-clipboard-target="#textCopy4" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
+              </li>
+              <div class="line-detail"></div>
+              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
+                <p class="info-title">Số tiền: </p>
+                <div class="d-flex align-items-end gap-2">
+                  <p id="priceCopy4" class="fs-5 fw-bold">3,150,000</p>
+                  <button id="priceCopyBtn4" data-clipboard-target="#priceCopy4" type="button" class="btn copyBtn"
+                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                    chép</button>
+                </div>
               </li>
 
             </ul>
@@ -282,7 +317,7 @@
           <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">Vietcombank</p>
         </li>
         <li id="card-03" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
-          <img class="logo-acb m-auto img-fluid" src="images/logo acb.svg"/>
+          <img class="logo-acb m-auto img-fluid" src="images/logo acb.svg" />
           <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">ACB Bank</p>
         </li>
         <li id="card-04" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
