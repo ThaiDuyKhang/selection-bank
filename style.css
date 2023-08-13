@@ -10,7 +10,6 @@ body {
 }
 
 header nav span {
-  font-size: 0.9rem;
   line-height: 1.2;
 }
 header,
@@ -56,9 +55,6 @@ footer {
 .dynamic-filter-list-container ul.info-card-holder li {
   padding: 1rem 0;
 }
-/* .dynamic-filter-list-container ul.info-card-holder li .info-title {
-  width: clamp(6.5625rem, 5.1923rem + 6.0897vw, 12.5rem);
-} */
   .dynamic-filter-list-container ul.info-card-holder li .info-title {
     width: clamp(10.625rem, 9.4178rem + 4.1096vw, 12.5rem);
   }
@@ -68,11 +64,6 @@ footer {
     width: clamp(6.5625rem, -6.7451rem + 59.1447vw, 10.625rem);
   }
 }
-/* @media(min-width:470px){
-  .dynamic-filter-list-container ul.info-card-holder li .info-title {
-    width: 200px;
-  }
-} */
 .dynamic-filter-list-container ul.info-card-holder li .copyBtn {
   background: #a2a6a9;
   border: #a2a6a9;
