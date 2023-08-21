@@ -11,6 +11,8 @@
   --footer-bg: #f9f9f9;
   --btn-gray-bg: #d9d9d9;
   --shadow-1: 0 8px 16px rgb(175 175 175 / 14%);
+  --header-height: 70px;
+  --footer-height: 126px
 }
 span,
 p,
@@ -27,7 +29,7 @@ body {
   background: var(--white);
 }
 .mainContent {
-  height: 100%;
+  height: calc(100vh - (var(--header-height) + var(--footer-height)))
 }
 header nav span {
   line-height: 1.2;
@@ -37,10 +39,12 @@ header {
   box-shadow: var(--shadow-1);
   z-index: 1;
   position: relative;
+  height: var(--header-height);
 }
 footer {
   border-top: 1px solid var(--border-color);
   background: var(--footer-bg);
+  height: var(--footer-height);
 }
 footer :is(a, p) {
   color: var(--black);
