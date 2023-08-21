@@ -28,9 +28,9 @@ body {
   margin: auto;
   background: var(--white);
 }
-.mainContent {
+/* .mainContent {
   height: calc(100vh - (var(--header-height) + var(--footer-height)))
-}
+} */
 header nav span {
   line-height: 1.2;
 }
