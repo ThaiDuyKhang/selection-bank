@@ -39,12 +39,12 @@ header {
   box-shadow: var(--shadow-1);
   z-index: 1;
   position: relative;
-  height: var(--header-height);
+  /* height: var(--header-height); */
 }
 footer {
   border-top: 1px solid var(--border-color);
   background: var(--footer-bg);
-  height: var(--footer-height);
+  /* height: var(--footer-height); */
 }
 footer :is(a, p) {
   color: var(--black);
@@ -373,7 +373,7 @@ footer :is(a, p) {
 .apply-bg-mb {
   background-image: url(./images/bg-mbb.jpg);
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: 78% top;
   background-size: cover;
 }
 @media (max-width: 767.9px) {

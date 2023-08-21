@@ -3,10 +3,22 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EVPS.VN - Thanh toán dịch vụ</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="_csrf" content="e48b6b60-26fd-4aaf-b284-16d1ad3bf246" />
+  <meta name="_csrf_header" content="X-CSRF-TOKEN" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Thanh toán dịch vụ công ty TNHH Giải pháp công nghệ EVPS" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="366" />
+  <meta property="og:image" content="https://evps.vn/wp-content/uploads/2023/03/giai-phap-cong-nghe-evps-1.png" />
+  <link href="./images/favicon.ico" rel="SHORTCUT ICON" />
+  <title>EVPS.VN - Web Hosting, Cloud VPS, Business Email, Website</title>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://api.spayment.vn/Scripts/sweetalert/sweetalert.min.js"></script>
+  <link href="https://api.spayment.vn/Scripts/sweetalert/sweetalert.css" rel="stylesheet" />
   <link href="./style.css" rel="stylesheet">
 </head>
 
@@ -97,8 +109,9 @@
                 Sử dụng <b>ứng dụng MoMo</b> hoặc<br>
                 Camera hỗ trợ QR code để quét mã
               </p>
-              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a href="#!" class="fw-semibold"
-                  style="color:var(--link-yellow)">Xem Hướng dẫn</a>
+              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a
+                  href="https://payment.momo.vn/v2/gateway/pay?t=TU9NT0NWVzUyMDIwMDUxM3wyNjA3LTE2NTg0NjYxMzU=#"
+                  onclick="showModal()" class="fw-semibold" style="color:var(--link-yellow)">Xem hướng dẫn</a>
               </p>
             </div>
           </div>
@@ -383,7 +396,7 @@
           Chọn phương thức thanh toán khác
         </span>
         <div class="mb-5 backBtn">
-          <a href="#">Huỷ thanh toán</a>
+          <a class="text-decoration-none" href="#!">Huỷ thanh toán</a>
         </div>
       </div>
     </div>
@@ -445,8 +458,251 @@
     </div>
   </footer>
   <script src="./js/scripts.js"></script>
+  <script src="./js/core.js"></script>
+  <script src="./js/js.js"></script>
+  <script src="./js/lazyload.js"></script>
+  <script>
+    var offset = 598623;
+    var second = offset / 1000;
+    var countdown = parseInt(second);
+    var offset = 598623;
+    var retry = 500;
+    var isTablet = false;
+    var device;
+    if (false) {
+      device = "mobile";
+    } else if (false) {
+      device = "tablet";
+    } else device = "desktop";
+
+    function closeCommonModalAndSendEvent() {
+      gtag("event", "aiopgw_paymodel_momowallet", {
+        action: "click_close_pu_walletpgw",
+        device: device,
+      });
+      $(".common-modal").remove();
+    }
+
+    $("#payByMomoAppTablet").click(function () {
+      openApp();
+    });
+
+    $("#openAppStoreTablet").click(function () {
+      openStore();
+      return false;
+    });
+
+    function back() {
+      gtag("event", "aiopgw_paymodel_momowallet", {
+        action: "click_cancel_pu_walletpgw",
+        device: device,
+      });
+      $("#btn-momo-cancel").click();
+    }
+
+    (document.onreadystatechange = function () {
+      "complete" == document.readyState &&
+        setTimeout(function () {
+          document.getElementById("interactive"),
+            document.getElementById("load").remove(),
+            document.getElementById("contents").classList.remove("d-none");
+        }, 1e3);
+    }),
+      $(document).ready(function () {
+        var e = offset / 1e3,
+          t = parseInt(e),
+          n = setInterval(function () {
+            var a = parseInt(e / 60),
+              c = parseInt(e - 60 * a);
+            e--,
+              t--,
+              a < 10 && (a = "0" + a),
+              c < 10 && (c = "0" + c),
+              $("span[name=expiredAt]").html(a + ":" + c),
+              $("b[name=expiredAt]").html(a + ":" + c),
+              t <= 0 &&
+              (clearInterval(n),
+                document.getElementById("btn-momo-expire").click());
+          }, 1e3);
+        $.ajaxSetup({ cache: !1 });
+        setUpDevice();
+        setUpUI();
+      });
+
+    function redirect(data) {
+      if (data.return_url) {
+        window.location.replace(data.return_url);
+      } else if (data.returnUrl) {
+        window.location.replace(data.returnUrl);
+      }
+    }
+
+    function openApp() {
+      //Fallback;
+      gtag("event", "aiopgw_paymodel_momowallet", {
+        action: "click_payapp_scr_walletpgw",
+        device: device,
+      });
+      if (null == null) {
+        window.location.href =
+          "momo:\/\/?action=payWithAppToken\u0026amount=899000\u0026cardId=\u0026cardType=\u0026cashInId=\u0026cashInIdPay=\u0026comment=\u0026createdAt=1658466137811\u0026deeplinkCallback=\u0026description=invoice2607\u0026discountCampaignAmount=0\u0026discountCode=\u0026extra=\u0026extraData=\u0026extras=\u0026gatewayMerchantCode=MOMOCVW520200513\u0026gatewaySessionId=TU9NT0NWVzUyMDIwMDUxM3wyNjA3LTE2NTg0NjYxMzU=\u0026gatewayVersion=3.0\u0026giftIds=\u0026installmentToken=\u0026isScanQR=false\u0026language=vi\u0026merchantcode=MOMOCVW520200513\u0026merchantname=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026merchantnamelabel=Nh%C3%A0+cung+c%E1%BA%A5p\u0026moneylimitPerTrans=\u0026orderGroupId=\u0026orderId=2607-1658466135\u0026orderLabel=M%C3%A3+%C4%91%C6%A1n+h%C3%A0ng\u0026partnerCode=MOMOCVW520200513\u0026partnerName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026pin=\u0026prepaidIds=\u0026requestId=1658466135\u0026requestType=payment\u0026serviceType=webApp\u0026signature=6945168ab4bbd892ea7759d57f75610955ed15b5138de3d2d76a8223611aec12\u0026storeId=MOMOCVW520200513\u0026storeName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026subPartnerCode=\u0026type=\u0026urlSubmitToken=https%3A%2F%2Fmomo.vn";
+        setTimeout(function () {
+          openStore();
+        }, 1000);
+      } else {
+        window.location.href =
+          "momo:\/\/?action=payWithAppToken\u0026amount=899000\u0026cardId=\u0026cardType=\u0026cashInId=\u0026cashInIdPay=\u0026comment=\u0026createdAt=1658466137811\u0026deeplinkCallback=\u0026description=invoice2607\u0026discountCampaignAmount=0\u0026discountCode=\u0026extra=\u0026extraData=\u0026extras=\u0026gatewayMerchantCode=MOMOCVW520200513\u0026gatewaySessionId=TU9NT0NWVzUyMDIwMDUxM3wyNjA3LTE2NTg0NjYxMzU=\u0026gatewayVersion=3.0\u0026giftIds=\u0026installmentToken=\u0026isScanQR=false\u0026language=vi\u0026merchantcode=MOMOCVW520200513\u0026merchantname=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026merchantnamelabel=Nh%C3%A0+cung+c%E1%BA%A5p\u0026moneylimitPerTrans=\u0026orderGroupId=\u0026orderId=2607-1658466135\u0026orderLabel=M%C3%A3+%C4%91%C6%A1n+h%C3%A0ng\u0026partnerCode=MOMOCVW520200513\u0026partnerName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026pin=\u0026prepaidIds=\u0026requestId=1658466135\u0026requestType=payment\u0026serviceType=webApp\u0026signature=6945168ab4bbd892ea7759d57f75610955ed15b5138de3d2d76a8223611aec12\u0026storeId=MOMOCVW520200513\u0026storeName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026subPartnerCode=\u0026type=\u0026urlSubmitToken=https%3A%2F%2Fmomo.vn";
+      }
+    }
+    function openStore() {
+      //Fallback;
+      setTimeout(function () {
+        window.location.href =
+          "market:\/\/details?id=com.mservice.momotransfer";
+      }, 100);
+    }
+
+    function executeXML() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+          // Typical action to be performed when the document is ready:
+          var data = JSON.parse(xhttp.responseText);
+          if (data.redirect) {
+            if (data.status_code == "0") {
+              gtag("event", "aiopgw_paymodel_momowallet", {
+                action: "scan_qrc_scr_walletpgw",
+                device: device,
+                result: "success",
+              });
+            } else {
+              gtag("event", "aiopgw_paymodel_momowallet", {
+                action: "scan_qrc_scr_walletpgw",
+                device: device,
+                result: "fail",
+              });
+            }
+            redirect(data);
+          } else {
+            if (retry > 0) setTimeout(executeXML, 4000);
+            retry--;
+          }
+        }
+      };
+      xhttp.open("POST", "/v2/gateway/querySession", true);
+      xhttp.setRequestHeader(
+        "X-CSRF-TOKEN",
+        "0763866d-bc2b-466d-9951-3c44f0b9cf8d"
+      );
+      xhttp.send();
+    }
+
+    $(document).ready(function () {
+      $.ajaxSetup({
+        cache: false,
+      });
+      setTimeout(executeXML, 4000);
+    });
+
+    function showModal() {
+      gtag("event", "aiopgw_paymodel_momowallet", {
+        action: "click_guide_scr_walletpgw",
+        device: device,
+      });
+      $(".modal-background").css("display", "block");
+    }
+
+    function closeModal() {
+      $(".modal-background").css("display", "none");
+    }
+
+    function setUpDevice() {
+      if (!isTablet) {
+        $(".tablet-ui").remove();
+        document.documentElement.style.setProperty(
+          "--footer-header-height",
+          $("#header").height() + $("#footer").height() + "px"
+        );
+      }
+    }
+    function setUpUI() {
+      if ("899.000" == 0 || "captureWallet" == "subscription") {
+        var expireText = $(
+          "<div class='expire-content mb-3'> <div class='box-expire' style='width: 350px; margin: auto'> <div class='expire-text'><p>Đơn hàng sẽ hết hạn sau: <span class='font-weight-normal time-expire-text' name='expiredAt'></span></p></div></div></div>"
+        );
+        var instruction = $(
+          "<div class='text-center my-3 font-size-14'><div class='black12-color mr-1 d-inline'>Gặp khó khăn khi thanh toán?</div><a onclick='return showModal()' class='blue-color font-weight-bold-600 hover-none-decoration' href='#'>Xem Hướng dẫn</a></div>"
+        );
+        var backButtonObjectRender = $(
+          "<div class='text-center my-3 font-size-14 font-weight-bold-600'><a class='momo-color backButton hover-momo-color hover-none-decoration' href='#'>Quay về</a></div>"
+        );
+
+        $(".payment-qr").css("padding", "30px 0px 30px 0px");
+
+        $("#orderInfo").remove();
+        $("#momo-mark").remove();
+        $("#form-qr-code").removeClass("col-lg-8");
+
+        isTablet
+          ? $("#form-qr-code").addClass("col-lg-12")
+          : $("#form-qr-code").addClass("col-lg-12");
+
+        $(".payment-qr")
+          .append(expireText)
+          .append(instruction)
+          .append(backButtonObjectRender);
+      }
+
+      $(".backButton").click(function () {
+        gtag("event", "aiopgw_paymodel_momowallet", {
+          action: "click_back_scr_walletpgw",
+          device: device,
+        });
+
+        if ("captureWallet" == "linkWallet") {
+          stringPartner =
+            " Bạn chắc chắn muốn hủy phiên liên kết <strong> Ví MoMo </strong> với " +
+            "<strong>" +
+            "C\u00F4ng Ty TNHH Th\u01B0\u01A1ng M\u1EA1i V\u00E0 D\u1ECBch V\u1EE5 FUTE" +
+            "</strong>" +
+            "  hiện tại?";
+          showCommonModal(
+            "Hủy phiên liên kết dịch vụ",
+            stringPartner,
+            "HỦY PHIÊN",
+            "return back()",
+            "ĐÓNG",
+            "return closeCommonModalAndSendEvent()"
+          );
+          return false;
+        }
+
+        if ("captureWallet" == "payWithMethod") {
+          location.reload();
+          return false;
+        }
+
+        stringPartner =
+          "Bạn chắc chắn muốn hủy giao dịch thanh toán với " +
+          "<strong>" +
+          "C\u00F4ng Ty TNHH Th\u01B0\u01A1ng M\u1EA1i V\u00E0 D\u1ECBch V\u1EE5 FUTE" +
+          "</strong>" +
+          "?";
+        showCommonModal(
+          "Huỷ giao dịch thanh toán",
+          stringPartner,
+          "HUỶ GIAO DỊCH",
+          "return back()",
+          "ĐÓNG",
+          "return closeCommonModalAndSendEvent()"
+        );
+        return false;
+      });
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
