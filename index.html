@@ -4,354 +4,398 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>EVPS.VN - Thanh toán dịch vụ</title>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="./style.css" rel="stylesheet">
 </head>
 
 <body>
-  <header class="mb-3 mb-md-5">
-    <nav class="py-3 text-light">
+  <header>
+    <nav class="py-3">
       <div class="container d-flex align-items-center">
-        <img class="me-3" src="images/logo-fute-group.svg" width="50">
-        <span class="me-auto ">Thanh toán hoá đơn dịch vụ công ty TNHH thương mại và dịch vụ FUTE </span>
+        <img class="me-4" src="images/evps-logo-square.svg" width="75">
+        <span class="me-auto ">Cổng thanh toán dịch vụ Công ty TNHH Giải pháp công nghệ EVPS</span>
       </div>
     </nav>
   </header>
-  <div class="container col-md-12 col-lg-12 col-xl-12 mt-4 mb-md-5 mb-5 ">
-    <div>
-      <p>Chọn ngân hàng hoặc ví điện tử để thực hiện thanh toán</p>
-    </div>
-    <!-------------------------------------------------- FILTER -------------------------------------------------->
-    <!-- <div class="dynamic-filter-container my-4 d-flex align-items-center">
-      <img class="search-img" src="images/search.svg" width="20">
-      <input type="text" id="dynamic-filter-input" class="form-control col" onkeyup="FilterListSection()"
-        placeholder="Nhập tên ngân hàng cần tìm..." />
-      <button id="clearButton" class="d-none btn search" type="button"
-        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Xoá</button>
-    </div> -->
-    <!-------------------------------------------------- CONTENT -------------------------------------------------->
-    <div class="dynamic-filter-list-container mt-4">
-      <!-------------------------------------------------- MOMO -------------------------------------------------->
-      <div class="filter-content-box overflow-hidden" id="card-01-content" style="display: none">
-        <div
-          class="header position-relative d-flex align-items-center justify-content-between py-3 px-4 px-md-5 rounded-top-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="images/momo.ico" width=30 />
-            <h5 class="title-method momo pe-4">Cổng thanh toán qua ví điện tử Momo</h5>
-          </div>
-          <div>
+  <div class="mainContent">
+    <div class="container col-md-12 col-lg-12 col-xl-12 pt-4 pb-4">
+      <!-------------------------------------------------- CONTENT -------------------------------------------------->
+      <div class="dynamic-filter-list-container ">
+        <p class="mb-4">Chọn ngân hàng hoặc ví điện tử để thực hiện thanh toán</p>
+        <!-------------------------------------------------- MOMO -------------------------------------------------->
+        <div class="filter-content-box" id="card-01-content" style="display: none">
+          <div class="header position-relative py-3 py-md-4">
+            <div class="d-flex align-items-center gap-2 ">
+              <img src="./images/momo.ico" width=30 />
+              <h5 class="title-method momo">Cổng thanh toán qua ví điện tử Momo</h5>
+            </div>
             <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
               data-original-title="close">
-              <span class="first-stright"></span>
-              <span class="second-stright"></span>
+              Chọn phương thức thanh toán khác
             </span>
           </div>
-        </div>
-        <div class="contentWapper_card momo pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
-          <div class="mainCard cardLeft flex-grow-1">
-            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
-            <ul class="info-card-holder mt-3 mt-lg-5">
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Họ và tên: </p>
-                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
-              </li>
-              <div class="line-detail"></div>
+          <div class="contentWapper_card momo pt-1 pb-0 pb-0 d-flex gap-4 ">
+            <div class="mainCard cardLeft flex-grow-1 border rounded-3 px-3 pt-3 pb-0 p-md-4">
+              <p class="order-title fw-bold">Thông tin thanh toán</p>
+              <ul class="info-card-holder mt-3 mt-lg-4">
+                <li class="d-flex flex-column  gap-2">
+                  <p class="info-title">Nhà cung cấp: </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <img class="logo rounded py-3 px-2" src="./images/evps-logo-square.svg">
+                    <p class="content fw-semibold">Công ty TNHH Giải pháp công nghệ EVPS</p>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-1 gap-md-2">
+                  <p class="info-title">Chủ tài khoản: </p>
+                  <p class="content fw-semibold">THÁI DUY KHANG</p>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Số điện thoại: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="phoneCopy" class="content fw-semibold">0909654684</p>
+                    <button id="PhoneCopyBtn" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
 
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số điện thoại: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="phoneCopy" class="fs-5 fw-bold">0909654684</p>
-                  <button id="PhoneCopyBtn" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Nội dung chuyển tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="textCopy" class="fs-5 fw-bold">EVPS610</p>
-                  <button id="textCopyBtn" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="priceCopy" class="fs-5 fw-bold">3,150,000</p>
-                  <button id="priceCopyBtn" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-          <div class="mainCard cardRight flex-grow-1 d-none d-md-block">
-            <p class="text-center col">
-              Sử dụng ứng dụng Ví MoMo hoặc Camera<br>để quét mã
-            </p>
-            <div class="qr-code col row justify-content-center mt-4">
-              <img alt="paymentcode" class="image-qr-code-momo"
-                src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=2|99|0982933507|NGUYEN%20TRONG%20VY|info@web2m.com|0|0|1000000||transfer_myqr" />
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Số tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="priceCopy" class="content fw-semibold">3,150,000</p>
+                    <button id="priceCopyBtn" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Nội dung chuyển tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="textCopy" class="content fw-semibold">EVPS610</p>
+                    <button id="textCopyBtn" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mainCard cardRight flex-grow-1 d-none d-md-block rounded-3 p-4 py-md-4 text-light">
+              <p class="qr-title text-center col fw-bold mb-5">
+                Quét mã QR để thanh toán
+              </p>
+              <div class="qr-code col row justify-content-center my-4">
+                <img alt="paymentcode" class="image-qr-code-momo"
+                  src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=<?php echo $text ?>" />
+              </div>
+              <p class="text-center col">
+                Sử dụng <b>ứng dụng MoMo</b> hoặc<br>
+                Camera hỗ trợ QR code để quét mã
+              </p>
+              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a href="#!" class="fw-semibold"
+                  style="color:var(--link-yellow)">Xem Hướng dẫn</a>
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <!-------------------------------------------------- VIETCOMBANK -------------------------------------------------->
-      <div class="filter-content-box overflow-hidden" id="card-02-content" style="display: none">
-        <div
-          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="images/vietcombank.ico" width=30 />
-            <h5 class="title-method vietcombank pe-4">Cổng thanh toán qua ngân hàng Vietcombank</h5>
+        <!-------------------------------------------------- VIETCOMBANK -------------------------------------------------->
+        <div class="filter-content-box" id="card-02-content" style="display: none">
+          <div class="header position-relative py-3 py-md-4">
+            <div class="d-flex align-items-center gap-4">
+              <img src="./images/logo-vietcombank.svg" width=90 />
+              <h5 class="title-method vietcombank">Cổng thanh toán qua Ngân hàng TMCP Ngoại thương
+                Việt Nam (Vietcombank)</h5>
+            </div>
+            <div>
+              <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
+                data-original-title="close">
+                Chọn phương thức thanh toán khác
+              </span>
+            </div>
           </div>
-          <div>
-            <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
-              data-original-title="close">
-              <span class="first-stright"></span>
-              <span class="second-stright"></span>
-            </span>
-          </div>
-        </div>
-        <div class="contentWapper_card vcb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
-          <div class="mainCard cardLeft flex-grow-1">
-            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
-            <ul class="info-card-holder mt-3 mt-md-5">
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Họ và tên: </p>
-                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tài khoản: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="phoneCopy2" class="fs-5 fw-bold">006101991</p>
-                  <button id="PhoneCopyBtn2" data-clipboard-target="#phoneCopy2" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Nội dung chuyển tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="textCopy2" class="fs-5 fw-bold">EVPS610</p>
-                  <button id="textCopyBtn2" data-clipboard-target="#textCopy2" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="priceCopy2" class="fs-5 fw-bold">3,150,000</p>
-                  <button id="priceCopyBtn2" data-clipboard-target="#priceCopy2" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-          <div class="mainCard cardRight flex-grow-1 d-none d-md-block">
-            <p class="text-center col">
-              Sử dụng ứng dụng Ngân hàng hoặc Camera<br>để quét mã
-            </p>
-            <div class="qr-code col row justify-content-center mt-4">
-              <img alt="paymentcode" class="image-qr-code-momo"
-                src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=2|99|0982933507|NGUYEN%20TRONG%20VY|info@web2m.com|0|0|1000000||transfer_myqr" />
+          <div class="contentWapper_card vcb pt-1 pb-0 pb-0 d-flex gap-4 ">
+            <div class="mainCard cardLeft flex-grow-1 border rounded-3 px-3 pt-3 pb-0 p-md-4">
+              <p class="order-title fw-semibold">Thông tin thanh toán</p>
+              <ul class="info-card-holder mt-3 mt-lg-4">
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Nhà cung cấp: </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <img class="logo rounded py-3 px-2" src="./images/evps-logo-square.svg">
+                    <p class="content fw-semibold">Công ty TNHH Giải pháp công nghệ EVPS</p>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-1 gap-md-2">
+                  <p class="info-title">Họ và tên: </p>
+                  <p class="content fw-semibold">THÁI DUY KHANG</p>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Số tài khoản: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="phoneCopy2" class="content fw-semibold">006101991</p>
+                    <button id="PhoneCopyBtn2" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Số tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="priceCopy2" class="content fw-semibold">3,150,000</p>
+                    <button id="priceCopyBtn2" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-md-2">
+                  <p class="info-title">Nội dung chuyển tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="textCopy2" class="content fw-semibold">EVPS610</p>
+                    <button id="textCopyBtn2" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mainCard cardRight flex-grow-1 d-none d-md-block rounded-3 p-4 py-md-4 text-light">
+              <p class="qr-title text-center col fw-semibold mb-5">
+                Quét mã QR để thanh toán
+              </p>
+              <div class="qr-code col row justify-content-center my-4">
+                <img alt="paymentcode" class="image-qr-code-vcb"
+                  src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=<?php echo $text ?>" />
+              </div>
+              <p class="text-center col">
+                Sử dụng <b>ứng dụng Ngân hàng</b> hoặc<br>
+                Camera hỗ trợ QR code để quét mã
+              </p>
+              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a href="#!" class="fw-semibold"
+                  style="color:var(--link-yellow)">Xem Hướng dẫn</a>
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <!-------------------------------------------------- ACB BANK -------------------------------------------------->
-      <div class="filter-content-box overflow-hidden" id="card-03-content" style="display: none">
-        <div
-          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="images/logo acb.svg" width=50 />
-            <h5 class="title-method acbbank pe-4">Cổng thanh toán qua ngân hàng ACB</h5>
+        <!-------------------------------------------------- ACB BANK -------------------------------------------------->
+        <div class="filter-content-box" id="card-03-content" style="display: none">
+          <div class="header position-relative py-4">
+            <div class="d-flex align-items-center gap-4">
+              <img src="./images/logo acb.svg" width=50 />
+              <h5 class="title-method acbbank">Cổng thanh toán qua Ngân hàng TMCP Á Châu (ACB)</h5>
+            </div>
+            <div>
+              <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
+                data-original-title="close">
+                Chọn phương thức thanh toán khác
+              </span>
+            </div>
           </div>
-          <div>
-            <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
-              data-original-title="close">
-              <span class="first-stright"></span>
-              <span class="second-stright"></span>
-            </span>
-          </div>
-        </div>
-        <div class="contentWapper_card acb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
-          <div class="mainCard cardLeft flex-grow-1">
-            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
-            <ul class="info-card-holder mt-3 mt-lg-5">
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Họ và tên: </p>
-                <p class="fs-5 fw-bold">THÁI DUY KHANG</p>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tài khoản: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="phoneCopy3" class="fs-5 fw-bold">006101991</p>
-                  <button id="PhoneCopyBtn3" data-clipboard-target="#phoneCopy3" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Nội dung chuyển khoản: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="textCopy3" class="fs-5 fw-bold">EVPS610</p>
-                  <button id="textCopyBtn3" data-clipboard-target="#textCopy3" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="priceCopy3" class="fs-5 fw-bold">3,150,000</p>
-                  <button id="priceCopyBtn3" data-clipboard-target="#priceCopy3" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-          <div class="mainCard cardRight flex-grow-1 d-none d-md-block">
-            <p class="text-center col">
-              Sử dụng ứng dụng Ngân hàng hoặc Camera<br>để quét mã
-            </p>
-            <div class="qr-code col row justify-content-center mt-4">
-              <img alt="paymentcode" class="image-qr-code-momo"
-                src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=2|99|0982933507|NGUYEN%20TRONG%20VY|info@web2m.com|0|0|1000000||transfer_myqr" />
+          <div class="contentWapper_card acb pt-1 pb-0 pb-0 d-flex gap-4 ">
+            <div class="mainCard cardLeft flex-grow-1 border rounded-3 p-3 p-md-4">
+              <p class="order-title fw-bold">Thông tin thanh toán</p>
+              <ul class="info-card-holder mt-3 mt-lg-4">
+                <li class="d-flex flex-column  gap-2">
+                  <p class="info-title">Nhà cung cấp: </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <img class="logo rounded py-3 px-2" src="./images/evps-logo-square.svg">
+                    <p class="content fw-semibold">Công ty TNHH Giải pháp công nghệ EVPS</p>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column  gap-2">
+                  <p class="info-title">Họ và tên: </p>
+                  <p class="content fw-semibold">THÁI DUY KHANG</p>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column  gap-2">
+                  <p class="info-title">Số tài khoản: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="phoneCopy3" class="content fw-semibold">006101991</p>
+                    <button id="PhoneCopyBtn3" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Số tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="priceCopy3" class="content fw-semibold">3,150,000</p>
+                    <button id="priceCopyBtn3" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column  gap-2">
+                  <p class="info-title">Nội dung chuyển tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="textCopy3" class="content fw-semibold">EVPS610</p>
+                    <button id="textCopyBtn3" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mainCard cardRight flex-grow-1 d-none d-md-block rounded-3 p-4 py-md-4 text-light">
+              <p class="qr-title text-center col fw-bold mb-5">
+                Quét mã QR để thanh toán
+              </p>
+              <div class="qr-code col row justify-content-center my-4">
+                <img alt="paymentcode" class="image-qr-code-acb"
+                  src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=<?php echo $text ?>" />
+              </div>
+              <p class="text-center col">
+                Sử dụng <b>ứng dụng Ngân hàng</b> hoặc<br>
+                Camera hỗ trợ QR code để quét mã
+              </p>
+              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a href="#!" class="fw-semibold"
+                  style="color:var(--link-yellow)">Xem Hướng dẫn</a>
+              </p>
             </div>
           </div>
         </div>
-      </div>
-      <!-------------------------------------------------- MB BANK -------------------------------------------------->
-      <div class="filter-content-box overflow-hidden" id="card-04-content" style="display: none">
-        <div
-          class="header position-relative d-flex align-items-center justify-content-between py-3 p-4 px-md-5 rounded-top-3">
-          <div class="d-flex align-items-center gap-2">
-            <img src="images/mbbank.ico" width=30 />
-            <h5 class="title-method mbbank pe-4">Cổng thanh toán qua ngân hàng MB</h5>
+        <!-------------------------------------------------- MB BANK -------------------------------------------------->
+        <div class="filter-content-box" id="card-04-content" style="display: none">
+          <div class="header position-relative py-4">
+            <div class="d-flex align-items-center gap-4">
+              <img src="./images/logo-mbbank.svg" width=90 />
+              <h5 class="title-method mbbank">Cổng thanh toán qua Ngân hàng Quân đội (MB)</h5>
+            </div>
+            <div>
+              <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
+                data-original-title="close">
+                Chọn phương thức thanh toán khác
+              </span>
+            </div>
           </div>
-          <div>
-            <span class="filter-content-close filter-item-open" data-toggle="tooltip" data-placement="bottom"
-              data-original-title="close">
-              <span class="first-stright"></span>
-              <span class="second-stright"></span>
-            </span>
-          </div>
-        </div>
-        <div class="contentWapper_card mbb pt-4 px-4 pt-md-5 px-md-5 pb-0 pb-0 d-flex gap-5">
-          <div class="mainCard cardLeft flex-grow-1">
-            <p class="notice fst-italic">Lưu ý: Nhập đúng nội dung chuyển tiền để hoàn tất quá trình thanh toán.</p>
-            <ul class="info-card-holder mt-3 mt-lg-5">
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Họ và tên: </p>
-                <span class="fs-5 fw-bold">THÁI DUY KHANG</span>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tài khoản: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="phoneCopy4" class="fs-5 fw-bold">006101991</p>
-                  <button id="PhoneCopyBtn4" data-clipboard-target="#phoneCopy4" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Nội dung chuyển khoản: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="textCopy4" class="fs-5 fw-bold">EVPS610</p>
-                  <button id="textCopyBtn4" data-clipboard-target="#textCopy4" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-              <div class="line-detail"></div>
-              <li class="d-flex flex-column flex-md-row align-items-md-end gap-1 gap-md-2">
-                <p class="info-title">Số tiền: </p>
-                <div class="d-flex align-items-end gap-2">
-                  <p id="priceCopy4" class="fs-5 fw-bold">3,150,000</p>
-                  <button id="priceCopyBtn4" data-clipboard-target="#priceCopy4" type="button" class="btn copyBtn"
-                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
-                    chép</button>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-          <div class="mainCard cardRight flex-grow-1 d-none d-md-block">
-            <p class="text-center col">
-              Sử dụng ứng dụng Ngân hàng hoặc Camera<br>để quét mã
-            </p>
-            <div class="qr-code col row justify-content-center mt-4">
-              <img alt="paymentcode" class="image-qr-code-momo"
-                src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=2|99|0982933507|NGUYEN%20TRONG%20VY|info@web2m.com|0|0|1000000||transfer_myqr" />
+          <div class="contentWapper_card mbb pt-1 pb-0 pb-0 d-flex gap-4 ">
+            <div class="mainCard cardLeft flex-grow-1 border rounded-3 p-3 p-md-4">
+              <p class="order-title fw-bold">Thông tin thanh toán</p>
+              <ul class="info-card-holder mt-3 mt-lg-4">
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Nhà cung cấp: </p>
+                  <div class="d-flex align-items-center gap-2">
+                    <img class="logo rounded py-3 px-2" src="./images/evps-logo-square.svg">
+                    <p class="content fw-semibold">Công ty TNHH Giải pháp công nghệ EVPS</p>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Họ và tên: </p>
+                  <p class="content fw-semibold">THÁI DUY KHANG</p>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Số tài khoản: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="phoneCopy4" class="content fw-semibold">006101991</p>
+                    <button id="PhoneCopyBtn4" data-clipboard-target="#phoneCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Số tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="priceCopy4" class="content fw-semibold">3,150,000</p>
+                    <button id="priceCopyBtn4" data-clipboard-target="#priceCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+                <div class="line-detail"></div>
+                <li class="d-flex flex-column gap-2">
+                  <p class="info-title">Nội dung chuyển tiền: </p>
+                  <div class="d-flex align-items-end justify-content-between gap-2">
+                    <p id="textCopy4" class="content fw-semibold">EVPS610</p>
+                    <button id="textCopyBtn4" data-clipboard-target="#textCopy" type="button" class="btn copyBtn"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Sao
+                      chép</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="mainCard cardRight flex-grow-1 d-none d-md-block rounded-3 p-4 py-md-4 text-light">
+              <p class="qr-title text-center col fw-bold mb-5">
+                Quét mã QR để thanh toán
+              </p>
+              <div class="qr-code col row justify-content-center my-4">
+                <img alt="paymentcode" class="image-qr-code-mbb"
+                  src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=<?php echo $text ?>" />
+              </div>
+              <p class="text-center col">
+                Sử dụng <b>ứng dụng Ngân hàng</b> hoặc<br>
+                Camera hỗ trợ QR code để quét mã
+              </p>
+              <p class="text-center col mt-4">Gặp khó khăn khi thanh toán? <a href="#!" class="fw-semibold"
+                  style="color:var(--link-yellow)">Xem Hướng dẫn</a>
+              </p>
             </div>
           </div>
         </div>
+        <!-------------------------------------------------- BANK CARDS -------------------------------------------------->
+        <ul id="dynamic-filter-list">
+          <li id="card-01" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
+            <img class="logo-momo m-auto img-fluid" src="images/momo.svg" />
+            <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">Ví Momo</p>
+          </li>
+          <li id="card-02" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
+            <img class="logo-vcb m-auto img-fluid" src="images/logo-vietcombank.svg" />
+            <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">Vietcombank</p>
+          </li>
+          <li id="card-03" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
+            <img class="logo-acb m-auto img-fluid" src="images/logo acb.svg" />
+            <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">ACB Bank</p>
+          </li>
+          <li id="card-04" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
+            <img class="logo-mbb m-auto img-fluid" src="images/logo-mbbank.svg" />
+            <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">MB Bank</p>
+          </li>
+        </ul>
       </div>
-      <!-------------------------------------------------- BANK CARDS -------------------------------------------------->
-      <ul id="dynamic-filter-list">
-        <li id="card-01" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
-          <img class="logo-momo m-auto img-fluid" src="images/momo.svg" />
-          <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">Ví Momo</p>
-        </li>
-        <li id="card-02" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
-          <img class="logo-vcb m-auto img-fluid" src="images/logo-vietcombank.svg" />
-          <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">Vietcombank</p>
-        </li>
-        <li id="card-03" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
-          <img class="logo-acb m-auto img-fluid" src="images/logo acb.svg" />
-          <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">ACB Bank</p>
-        </li>
-        <li id="card-04" class="d-flex flex-column justify-content-between align-items-center p-3 p-md-4 rounded-3">
-          <img class="logo-mbb m-auto img-fluid" src="images/logo-mbbank.svg" />
-          <p class="m-0 justify-content-center d-flex text-center fw-medium lh-1 pt-3 px-3">MB Bank</p>
-        </li>
-      </ul>
-    </div>
-    <!-------------------------------------------------- EXPIRE -------------------------------------------------->
-    <div class="expire-content mb-3">
-      <div class="box-expire">
-        <div class="expire-text">
-          <p class="m-0">
-            Đơn hàng sẽ hết hạn sau:
-            <span class="time-expire-text" name="expiredAt">09:25</span>
-          </p>
+      <!-------------------------------------------------- EXPIRE -------------------------------------------------->
+      <div class="expire-content mb-3">
+        <div class="box-expire p-3">
+          <div class="expire-text text-center">
+            <p class="m-0 d-flex flex-column flex-md-row justify-content-center align-items-center gap-md-2">
+              Đơn hàng sẽ hết hạn sau:
+              <span class="time-expire-text fw-medium fs-3" name="expiredAt">09:25</span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <!-------------------------------------------------- BACK -------------------------------------------------->
-    <div class="support text-center">
-      <div class="mb-5 backBtn">
-        <a class="fw-bold" href="#">Quay về</a>
+      <!-------------------------------------------------- BACK -------------------------------------------------->
+
+      <div class="support text-center mt-4">
+        <span style="display: none;" class="filter-content-close-mobile filter-item-open" data-toggle="tooltip"
+          data-placement="bottom" data-original-title="close">
+          Chọn phương thức thanh toán khác
+        </span>
+        <div class="mb-5 backBtn">
+          <a href="#">Huỷ thanh toán</a>
+        </div>
       </div>
     </div>
   </div>
   <footer id="footer">
-    <div class="container py-4 text-light">
+    <div class="container py-4">
       <div class="footer-wrap flex-column gap-4 flex-md-row d-flex justify-content-between">
         <div class="footer-wrap-version d-flex flex-column gap-2">
           <a class="footer-logo">
-            <img alt="logo" id="logofooter" class="img-fluid" src="./images/logo-fute-horizontal.svg" /></a><span>© 2023
+            <img alt="logo" id="logofooter" class="img-fluid" src="./images/evps-logo-square.svg" /></a><span>© 2023
             - Cổng
-            thanh toán online sử dụng API của <a class="text-light" href="https://api.spayment.vn">sPayment</a> </span>
+            thanh toán online sử dụng API của <a href="https://api.spayment.vn">sPayment.vn</a> </span>
         </div>
 
         <div class="footer-wrap-info">
@@ -359,7 +403,7 @@
           <div>
             <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                 <g fill="none" fill-rule="evenodd">
-                  <g fill="#ffffff">
+                  <g fill="#1a1d21">
                     <g>
                       <g>
                         <g>
@@ -372,13 +416,13 @@
                   </g>
                 </g>
               </svg></span>
-            <a class="momo-phone-icon text-light" href="tel:0909654684">0909 654 684</a>
+            <a class="momo-phone-icon" href="tel:0909654684">0909 654 684</a>
           </div>
           <div>
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                 <g fill="none" fill-rule="evenodd">
-                  <g fill="#ffffff">
+                  <g fill="#1a1d21">
                     <g>
                       <g>
                         <g>
@@ -392,7 +436,7 @@
                 </g>
               </svg>
             </span>
-            <a class="momo-mail-icon text-light" href="mailto:hotro@evps.vn">
+            <a class="momo-mail-icon" href="mailto:hotro@evps.vn">
               hotro@evps.vn</a>
           </div>
 
@@ -404,245 +448,6 @@
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
-  <script>
-    var offset = 598623;
-    var second = offset / 1000;
-    var countdown = parseInt(second);
-    var offset = 598623;
-    var retry = 500;
-    var isTablet = false;
-    var device;
-    if (false) {
-      device = "mobile";
-    } else if (false) {
-      device = "tablet";
-    } else device = "desktop";
-
-    function closeCommonModalAndSendEvent() {
-      gtag("event", "aiopgw_paymodel_momowallet", {
-        action: "click_close_pu_walletpgw",
-        device: device,
-      });
-      $(".common-modal").remove();
-    }
-
-    $("#payByMomoAppTablet").click(function () {
-      openApp();
-    });
-
-    $("#openAppStoreTablet").click(function () {
-      openStore();
-      return false;
-    });
-
-    function back() {
-      gtag("event", "aiopgw_paymodel_momowallet", {
-        action: "click_cancel_pu_walletpgw",
-        device: device,
-      });
-      $("#btn-momo-cancel").click();
-    }
-
-    (document.onreadystatechange = function () {
-      "complete" == document.readyState &&
-        setTimeout(function () {
-          document.getElementById("interactive"),
-            document.getElementById("load").remove(),
-            document.getElementById("contents").classList.remove("d-none");
-        }, 1e3);
-    }),
-      $(document).ready(function () {
-        var e = offset / 1e3,
-          t = parseInt(e),
-          n = setInterval(function () {
-            var a = parseInt(e / 60),
-              c = parseInt(e - 60 * a);
-            e--,
-              t--,
-              a < 10 && (a = "0" + a),
-              c < 10 && (c = "0" + c),
-              $("span[name=expiredAt]").html(a + ":" + c),
-              $("b[name=expiredAt]").html(a + ":" + c),
-              t <= 0 &&
-              (clearInterval(n),
-                document.getElementById("btn-momo-expire").click());
-          }, 1e3);
-        $.ajaxSetup({ cache: !1 });
-        setUpDevice();
-        setUpUI();
-      });
-
-    function redirect(data) {
-      if (data.return_url) {
-        window.location.replace(data.return_url);
-      } else if (data.returnUrl) {
-        window.location.replace(data.returnUrl);
-      }
-    }
-
-    function openApp() {
-      //Fallback;
-      gtag("event", "aiopgw_paymodel_momowallet", {
-        action: "click_payapp_scr_walletpgw",
-        device: device,
-      });
-      if (null == null) {
-        window.location.href =
-          "momo:\/\/?action=payWithAppToken\u0026amount=899000\u0026cardId=\u0026cardType=\u0026cashInId=\u0026cashInIdPay=\u0026comment=\u0026createdAt=1658466137811\u0026deeplinkCallback=\u0026description=invoice2607\u0026discountCampaignAmount=0\u0026discountCode=\u0026extra=\u0026extraData=\u0026extras=\u0026gatewayMerchantCode=MOMOCVW520200513\u0026gatewaySessionId=TU9NT0NWVzUyMDIwMDUxM3wyNjA3LTE2NTg0NjYxMzU=\u0026gatewayVersion=3.0\u0026giftIds=\u0026installmentToken=\u0026isScanQR=false\u0026language=vi\u0026merchantcode=MOMOCVW520200513\u0026merchantname=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026merchantnamelabel=Nh%C3%A0+cung+c%E1%BA%A5p\u0026moneylimitPerTrans=\u0026orderGroupId=\u0026orderId=2607-1658466135\u0026orderLabel=M%C3%A3+%C4%91%C6%A1n+h%C3%A0ng\u0026partnerCode=MOMOCVW520200513\u0026partnerName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026pin=\u0026prepaidIds=\u0026requestId=1658466135\u0026requestType=payment\u0026serviceType=webApp\u0026signature=6945168ab4bbd892ea7759d57f75610955ed15b5138de3d2d76a8223611aec12\u0026storeId=MOMOCVW520200513\u0026storeName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026subPartnerCode=\u0026type=\u0026urlSubmitToken=https%3A%2F%2Fmomo.vn";
-        setTimeout(function () {
-          openStore();
-        }, 1000);
-      } else {
-        window.location.href =
-          "momo:\/\/?action=payWithAppToken\u0026amount=899000\u0026cardId=\u0026cardType=\u0026cashInId=\u0026cashInIdPay=\u0026comment=\u0026createdAt=1658466137811\u0026deeplinkCallback=\u0026description=invoice2607\u0026discountCampaignAmount=0\u0026discountCode=\u0026extra=\u0026extraData=\u0026extras=\u0026gatewayMerchantCode=MOMOCVW520200513\u0026gatewaySessionId=TU9NT0NWVzUyMDIwMDUxM3wyNjA3LTE2NTg0NjYxMzU=\u0026gatewayVersion=3.0\u0026giftIds=\u0026installmentToken=\u0026isScanQR=false\u0026language=vi\u0026merchantcode=MOMOCVW520200513\u0026merchantname=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026merchantnamelabel=Nh%C3%A0+cung+c%E1%BA%A5p\u0026moneylimitPerTrans=\u0026orderGroupId=\u0026orderId=2607-1658466135\u0026orderLabel=M%C3%A3+%C4%91%C6%A1n+h%C3%A0ng\u0026partnerCode=MOMOCVW520200513\u0026partnerName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026pin=\u0026prepaidIds=\u0026requestId=1658466135\u0026requestType=payment\u0026serviceType=webApp\u0026signature=6945168ab4bbd892ea7759d57f75610955ed15b5138de3d2d76a8223611aec12\u0026storeId=MOMOCVW520200513\u0026storeName=C%C3%B4ng+Ty+TNHH+Th%C6%B0%C6%A1ng+M%E1%BA%A1i+V%C3%A0+D%E1%BB%8Bch+V%E1%BB%A5+FUTE\u0026subPartnerCode=\u0026type=\u0026urlSubmitToken=https%3A%2F%2Fmomo.vn";
-      }
-    }
-    function openStore() {
-      //Fallback;
-      setTimeout(function () {
-        window.location.href =
-          "market:\/\/details?id=com.mservice.momotransfer";
-      }, 100);
-    }
-
-    function executeXML() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-          // Typical action to be performed when the document is ready:
-          var data = JSON.parse(xhttp.responseText);
-          if (data.redirect) {
-            if (data.status_code == "0") {
-              gtag("event", "aiopgw_paymodel_momowallet", {
-                action: "scan_qrc_scr_walletpgw",
-                device: device,
-                result: "success",
-              });
-            } else {
-              gtag("event", "aiopgw_paymodel_momowallet", {
-                action: "scan_qrc_scr_walletpgw",
-                device: device,
-                result: "fail",
-              });
-            }
-            redirect(data);
-          } else {
-            if (retry > 0) setTimeout(executeXML, 4000);
-            retry--;
-          }
-        }
-      };
-      xhttp.open("POST", "/v2/gateway/querySession", true);
-      xhttp.setRequestHeader(
-        "X-CSRF-TOKEN",
-        "0763866d-bc2b-466d-9951-3c44f0b9cf8d"
-      );
-      xhttp.send();
-    }
-
-    $(document).ready(function () {
-      $.ajaxSetup({
-        cache: false,
-      });
-      setTimeout(executeXML, 4000);
-    });
-
-    function showModal() {
-      gtag("event", "aiopgw_paymodel_momowallet", {
-        action: "click_guide_scr_walletpgw",
-        device: device,
-      });
-      $(".modal-background").css("display", "block");
-    }
-
-    function closeModal() {
-      $(".modal-background").css("display", "none");
-    }
-
-    function setUpDevice() {
-      if (!isTablet) {
-        $(".tablet-ui").remove();
-        document.documentElement.style.setProperty(
-          "--footer-header-height",
-          $("#header").height() + $("#footer").height() + "px"
-        );
-      }
-    }
-    function setUpUI() {
-      if ("899.000" == 0 || "captureWallet" == "subscription") {
-        var expireText = $(
-          "<div class='expire-content mb-3'> <div class='box-expire' style='width: 350px; margin: auto'> <div class='expire-text'><p>Đơn hàng sẽ hết hạn sau: <span class='font-weight-normal time-expire-text' name='expiredAt'></span></p></div></div></div>"
-        );
-        var instruction = $(
-          "<div class='text-center my-3 font-size-14'><div class='black12-color mr-1 d-inline'>Gặp khó khăn khi thanh toán?</div><a onclick='return showModal()' class='blue-color font-weight-bold-600 hover-none-decoration' href='#'>Xem Hướng dẫn</a></div>"
-        );
-        var backButtonObjectRender = $(
-          "<div class='text-center my-3 font-size-14 font-weight-bold-600'><a class='momo-color backButton hover-momo-color hover-none-decoration' href='#'>Quay về</a></div>"
-        );
-
-        $(".payment-qr").css("padding", "30px 0px 30px 0px");
-
-        $("#orderInfo").remove();
-        $("#momo-mark").remove();
-        $("#form-qr-code").removeClass("col-lg-8");
-
-        isTablet
-          ? $("#form-qr-code").addClass("col-lg-12")
-          : $("#form-qr-code").addClass("col-lg-12");
-
-        $(".payment-qr")
-          .append(expireText)
-          .append(instruction)
-          .append(backButtonObjectRender);
-      }
-
-      $(".backButton").click(function () {
-        gtag("event", "aiopgw_paymodel_momowallet", {
-          action: "click_back_scr_walletpgw",
-          device: device,
-        });
-
-        if ("captureWallet" == "linkWallet") {
-          stringPartner =
-            " Bạn chắc chắn muốn hủy phiên liên kết <strong> Ví MoMo </strong> với " +
-            "<strong>" +
-            "C\u00F4ng Ty TNHH Th\u01B0\u01A1ng M\u1EA1i V\u00E0 D\u1ECBch V\u1EE5 FUTE" +
-            "</strong>" +
-            "  hiện tại?";
-          showCommonModal(
-            "Hủy phiên liên kết dịch vụ",
-            stringPartner,
-            "HỦY PHIÊN",
-            "return back()",
-            "ĐÓNG",
-            "return closeCommonModalAndSendEvent()"
-          );
-          return false;
-        }
-
-        if ("captureWallet" == "payWithMethod") {
-          location.reload();
-          return false;
-        }
-
-        stringPartner =
-          "Bạn chắc chắn muốn hủy giao dịch thanh toán với " +
-          "<strong>" +
-          "C\u00F4ng Ty TNHH Th\u01B0\u01A1ng M\u1EA1i V\u00E0 D\u1ECBch V\u1EE5 FUTE" +
-          "</strong>" +
-          "?";
-        showCommonModal(
-          "Huỷ giao dịch thanh toán",
-          stringPartner,
-          "HUỶ GIAO DỊCH",
-          "return back()",
-          "ĐÓNG",
-          "return closeCommonModalAndSendEvent()"
-        );
-        return false;
-      });
-    }
-  </script>
 </body>
 
 </html>

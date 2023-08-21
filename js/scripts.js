@@ -47,13 +47,70 @@ jQuery(document).ready(function ($) {
       .delay(0)
       .fadeIn(50);
   });
-  $(".filter-content-close").on("click", function () {
-    $(this).addClass("filter-item-open");
-    $(".dynamic-filter-list-container").removeClass(
-      "dynamic-filter-min-height"
-    );
-    $(".filter-content-box").delay(0).fadeOut(50);
+  $(".filter-content-close,.filter-content-close-mobile ").on(
+    "click",
+    function () {
+      $(this).addClass("filter-item-open");
+      $(".dynamic-filter-list-container").removeClass(
+        "dynamic-filter-min-height"
+      );
+      $(".filter-content-box").delay(0).fadeOut(50);
+    }
+  );
+});
+
+//--------------------------------------------------/
+// Trigger Content Box
+//--------------------------------------------------/
+$(document).ready(function () {
+  var card = $("ul#dynamic-filter-list li");
+  var cardMomo = $("ul#dynamic-filter-list li#card-01");
+  var cardVCB = $("ul#dynamic-filter-list li#card-02");
+  var cardACB = $("ul#dynamic-filter-list li#card-03");
+  var cardMB = $("ul#dynamic-filter-list li#card-04");
+
+  card.on("click", function () {
+    $(".dynamic-filter-list-container > p, ul#dynamic-filter-list")
+      .delay(0)
+      .fadeOut(0);
   });
+  if (window.matchMedia("(max-width: 767.9px)").matches) {
+    card.on("click", function () {
+      $(".filter-content-close-mobile").css("display", "inline-block");
+    });
+  }
+
+  cardMomo.on("click", function () {
+    $(".mainContent").addClass("apply-bg-momo");
+  });
+  cardVCB.on("click", function () {
+    $(".mainContent").addClass("apply-bg-vcb");
+  });
+  cardACB.on("click", function () {
+    $(".mainContent").addClass("apply-bg-acb");
+  });
+  cardMB.on("click", function () {
+    $(".mainContent").addClass("apply-bg-mb");
+  });
+
+  $(".filter-content-close,.filter-content-close-mobile").on(
+    "click",
+    function () {
+      $(".dynamic-filter-list-container > p, ul#dynamic-filter-list")
+        .delay(0)
+        .fadeIn(0);
+      $(".mainContent")
+        .removeClass("apply-bg-momo")
+        .removeClass("apply-bg-vcb")
+        .removeClass("apply-bg-acb")
+        .removeClass("apply-bg-mb");
+    }
+  );
+  if (window.matchMedia("(max-width: 767.9px)").matches) {
+    $(".filter-content-close-mobile").on("click", function () {
+      $(".filter-content-close-mobile").css("display", "none");
+    });
+  }
 });
 
 //--------------------------------------------------/
@@ -83,44 +140,3 @@ $(document).ready(function () {
     $(this).text("Đã sao chép");
   });
 });
-
-//--------------------------------------------------/
-// Change QR code resposive
-//--------------------------------------------------/
-const outputElement = document.getElementById("qr-momo");
-const smallScreen = window.matchMedia("(max-width: 768px)");
-function handleScreenChange(e) {
-  if (e.matches) {
-    outputElement.innerHTML = `
-    <div class="qrWrapper" id="qr-momo">
-        <div class="subtitle">
-            <h3>
-                Nhấn vào nút <b>Mở App MoMo</b> để chuyển đến trang thanh toán</h3>
-        </div>
-        <div class="qr-code-momo" >
-                <button class="nhanTienBtn" href="https://nhantien.momo.vn">Mở App Momo</button>
-        </div>
-    </div>
-    `;
-  } else {
-    outputElement.innerHTML = `
-    <div class="qrWrapper" id="qr-momo">
-                  <div class="subtitle">
-                    <h3>
-                      Sử dụng <b>App MoMo</b> hoặc ứng dụng camera hỗ trợ QR
-                      code để quét mã
-                    </h3>
-                  </div>
-                  <div class="qr-code-momo" >
-                    <img
-                      alt="paymentcode"
-                      class="image-qr-code-momo"
-                      src="https://chart.googleapis.com/chart?chs=350x350&cht=qr&chl=2|99|0982933507|NGUYEN%20TRONG%20VY|info@web2m.com|0|0|1000000||transfer_myqr"
-                    />
-                  </div>
-                </div>
-    `;
-  }
-}
-smallScreen.addListener(handleScreenChange);
-handleScreenChange(smallScreen);
